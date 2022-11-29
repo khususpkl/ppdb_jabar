@@ -47,15 +47,31 @@ class Beranda extends StatelessWidget {
         decoration: new BoxDecoration(
           image: new DecorationImage(
             image: ExactAssetImage('assets/image/bg_hero.png'),
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.fitWidth
           ),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            toolbarHeight: 180,
             elevation: 0,
             backgroundColor: Colors.transparent,
-            title: Text('PPDB Jabar'),
+            title: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('PPDB'),
+              Text('SMA-SMK-SLB'),
+              Text('Sekolah Merdeka Jabar Juara'),
+              Row(
+                children: [
+                  Text('Ayo Daftar PPDB 2023'),
+                  ElevatedButton(onPressed: () {}, child: Text('Daftar'))
+                ],
+              )
+            ],
+          ),
+        ),
             centerTitle: false,
           ),
         ),
