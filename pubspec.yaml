@@ -65,6 +65,9 @@ flutter:
     - assets/image/disdikjabar.png
     - assets/image/pemprovjabar.png
     - assets/image/bg_hero.png
+    - assets/image/ktp.png
+    - assets/image/jalur_daftar.png
+    - assets/image/jadwal_daftar.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -77,17 +80,32 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-Black.ttf
+          weight: 900
+        - asset: assets/font/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/font/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/font/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/font/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/font/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/font/Poppins-Thin.ttf
+          weight: 100
+    
+    - family: tes
+      fonts:
+        - asset: assets/font/TES.ttf
+          weight: 600
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
