@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ppdb_jabar/components/faq_home.dart';
+import 'package:ppdb_jabar/components/intregrafis.dart';
+import 'package:ppdb_jabar/components/kabar_terbaru.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
@@ -29,7 +32,7 @@ class Beranda extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Center(
+        child: Container(
           child: Column(
             children: [
               Padding(padding: EdgeInsets.only(top: 10)),
@@ -46,13 +49,69 @@ class Beranda extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child: Text(
-                    'PPDB \nSMA - SMK - SLB',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Poppins'),
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.only(top: 20, bottom: 50),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'PPDB',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'SLB - SMA - SMK',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 11,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'Sekolah Merdeka Jabar Juara',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 11,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Container(
+                          width: widht * 0.4,
+                          height: 30,
+                          decoration: BoxDecoration(color: Colors.white),
+                          child: Row(
+                            children: [
+                              Padding(padding: EdgeInsets.all(5.0)),
+                              RichText(
+                                text: TextSpan(
+                                  text: 'Ayo Daftar PPDB 2023',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black),
+                                  children: [
+                                    TextSpan(
+                                      text: ' Daftar',
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black,
+                                          backgroundColor: Colors.green),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   )),
               Column(
                 children: [
@@ -346,30 +405,40 @@ class Beranda extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        OutlinedButton(
+                        Padding(padding: EdgeInsets.only(bottom: 20)),
+                        TextButton(
                           onPressed: () {},
                           child: Text(
-                            'Integrafis',
+                            'Intrografis',
                             style: TextStyle(
-                              color: Color.fromRGBO(144, 202, 249, 100),
-                            ),
+                                fontFamily: 'Poppins',
+                                color: Color.fromRGBO(144, 202, 249, 100)),
                           ),
                         ),
-                        OutlinedButton(
+                        TextButton(
                           onPressed: () {},
                           child: Text(
                             'Video',
                             style: TextStyle(
-                              color: Color.fromRGBO(22, 167, 92, 100),
-                            ),
+                                fontFamily: 'Poppins',
+                                color: Color.fromRGBO(22, 167, 92, 100)),
                           ),
                         ),
                       ],
                     ),
-                    
+                    Column(
+                      children: <Widget>[Intregrafis()],
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(top: 20.0),
+                      child: KabarTerbaru(),
+                    ),
                   ],
                 ),
               ),
+              Container(
+                child: Faq_Home(),
+              )
             ],
           ),
         ),
