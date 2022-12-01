@@ -117,7 +117,7 @@ class Faq_Home extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
               children: [
@@ -176,7 +176,7 @@ class Faq_Home extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
               children: [
@@ -235,7 +235,7 @@ class Faq_Home extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
               children: [
@@ -293,7 +293,7 @@ class Faq_Home extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
               children: [
@@ -358,6 +358,7 @@ class Faq_Home extends StatelessWidget {
           ),
         ),
         Container(
+          padding: EdgeInsets.all(8.0),
           width: widht * 0.4,
           decoration: BoxDecoration(
             color: Color.fromRGBO(230, 246, 236, 100),
@@ -366,18 +367,21 @@ class Faq_Home extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Lihat Semua', style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 18,
-                fontWeight: FontWeight.w600
-              ),),
+              Text(
+                'Lihat Semua ',
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600),
+              ),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(100)
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(100)),
+                child: Icon(
+                  Icons.chevron_right,
+                  size: 30.0,
                 ),
-                child: Icon(Icons.chevron_right,
-              size: 30.0,),
               )
             ],
           ),
