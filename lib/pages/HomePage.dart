@@ -51,7 +51,7 @@ class Beranda extends StatelessWidget {
                   ),
                   child: Container(
                     alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(top: 20, bottom: 50),
+                    padding: EdgeInsets.only(top: 40),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -80,31 +80,37 @@ class Beranda extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                         ),
                         Container(
-                          width: widht * 0.4,
+                          width: widht * 0.46,
                           height: 30,
-                          decoration: BoxDecoration(color: Colors.white),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             children: [
-                              Padding(padding: EdgeInsets.all(5.0)),
-                              RichText(
-                                text: TextSpan(
-                                  text: 'Ayo Daftar PPDB 2023',
+                              Padding(padding: EdgeInsets.all(5.3)),
+                              Text(
+                                'Ayo Daftar PPDB 2023',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.green),
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white),
+                                ),
+                                child: Text(
+                                  'Daftar',
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black),
-                                  children: [
-                                    TextSpan(
-                                      text: ' Daftar',
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black,
-                                          backgroundColor: Colors.green),
-                                    ),
-                                  ],
+                                      fontSize: 8,
+                                      fontWeight: FontWeight.w600),
                                 ),
                               )
                             ],
