@@ -357,30 +357,37 @@ class Faq_Home extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          padding: EdgeInsets.all(8.0),
-          width: widht * 0.4,
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(230, 246, 236, 100),
-            borderRadius: BorderRadius.circular(20),
-          ),
+        Padding(
+          padding: const EdgeInsets.only(top: 30.0, bottom: 50.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Lihat Semua ',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
-              ),
               Container(
+                padding: EdgeInsets.all(10.0),
+                // width: widht * 0.4,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(100)),
-                child: Icon(
-                  Icons.chevron_right,
-                  size: 30.0,
+                  color: Color.fromRGBO(230, 246, 236, 100),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      'Lihat Semua ',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(100)),
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 30.0,
+                      ),
+                    )
+                  ],
                 ),
               )
             ],

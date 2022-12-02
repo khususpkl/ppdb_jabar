@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ppdb_jabar/components/faq_home.dart';
-import 'package:ppdb_jabar/components/intregrafis.dart';
-import 'package:ppdb_jabar/components/kabar_terbaru.dart';
+import 'package:ppdb_jabar/components/Footer.dart';
+import 'package:ppdb_jabar/components/app_bar.dart';
+import 'package:ppdb_jabar/components/drawer_end.dart';
+import 'package:ppdb_jabar/components/home/faq_home.dart';
+import 'package:ppdb_jabar/components/home/informasi_ppdb.dart';
+import 'package:ppdb_jabar/components/home/intregrafis.dart';
+import 'package:ppdb_jabar/components/home/kabar_terbaru.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
@@ -13,397 +17,115 @@ class Beranda extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset(
-              'assets/image/pemprovjabar.png',
-              scale: 25,
-            ),
-            Image.asset(
-              'assets/image/disdikjabar.png',
-              scale: 23,
-            ),
-            Image.asset(
-              'assets/image/ppdb.png',
-              scale: 4,
-            ),
-          ],
+        title: App_Bar(),
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: Icon(Icons.menu),
+            color: Colors.black,
+          ),
         ),
       ),
+      drawer: DrawerEnd(),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
               Padding(padding: EdgeInsets.only(top: 10)),
               Container(
-                  // padding: EdgeInsets.only(top: 10),
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(left: 20),
-                  width: widht * 0.9,
-                  height: height * 0.2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                      image: AssetImage('assets/image/bg_hero.png'),
-                      fit: BoxFit.cover,
-                    ),
+                // padding: EdgeInsets.only(top: 10),
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.only(left: 20),
+                width: widht * 0.9,
+                height: height * 0.2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: AssetImage('assets/image/bg_hero.png'),
+                    fit: BoxFit.cover,
                   ),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(top: 40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'PPDB',
-                          style: TextStyle(
+                ),
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(top: 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'PPDB',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        'SLB - SMA - SMK',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        'Sekolah Merdeka Jabar Juara',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 11,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(left: 3.0),
+                            decoration: BoxDecoration(
                               color: Colors.white,
-                              fontSize: 15,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          'SLB - SMA - SMK',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 11,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          'Sekolah Merdeka Jabar Juara',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 11,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Container(
-                          width: widht * 0.46,
-                          height: 30,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
-                            children: [
-                              Padding(padding: EdgeInsets.all(5.3)),
-                              Text(
-                                'Ayo Daftar PPDB 2023',
-                                style: TextStyle(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            height: 30,
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Ayo Daftar PPDB 2023',
+                                  style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 12,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.green),
-                                  foregroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.white),
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                                child: Text(
-                                  'Daftar',
-                                  style: TextStyle(
+                                TextButton(
+                                  onPressed: () {},
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.green),
+                                    foregroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Colors.white),
+                                  ),
+                                  child: Text(
+                                    'Daftar',
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 8,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )),
-              Column(
-                children: [
-                  Padding(padding: EdgeInsets.only(top: 20)),
-                  Text(
-                    'Informasi Seputar',
-                    style: TextStyle(
-                        color: Color.fromRGBO(22, 167, 92, 100),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Poppins'),
-                  ),
-                  Text(
-                    'PPDB',
-                    style: TextStyle(
-                        color: Color.fromRGBO(84, 199, 201, 100),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Poppins'),
-                  ),
-                  Container(
-                    width: widht * 0.8,
-                    padding: EdgeInsets.only(top: 10, bottom: 10),
-                    child: Text(
-                      'Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi',
-                      style: TextStyle(
-                          color: Color.fromRGBO(97, 97, 07, 100),
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Poppins'),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Column(
-                        children: [
-                          Image.asset('assets/image/ktp.png'),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 7,
-                                  width: 7,
-                                  child: TextButton(
-                                    style: TextButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromRGBO(112, 205, 148, 100),
-                                      shape: const CircleBorder(),
-                                    ),
-                                    child: const Text(''),
-                                    onPressed: () {},
-                                  ),
-                                ),
-                                Text(
-                                  'Identitas Kependudukan',
-                                  style: TextStyle(
-                                      fontSize: 20,
                                       fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(255, 149, 0, 100),
-                                      fontFamily: 'Poppins'),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: widht * 0.8,
-                            padding: EdgeInsets.only(top: 10, bottom: 20),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Kartu Keluarga yang belum 1 tahun atau masih baru karena perubahan (kelahiran, meninggal, kepindahan) anggota keluarga dapat melampirkan surat keterangan dari RT/RW yang menerangkan lamanya domisili.',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, bottom: 20),
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Detail'),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromRGBO(22, 167, 92, 100),
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(15),
-                                      ),
                                     ),
                                   ),
                                 )
                               ],
                             ),
-                          ),
+                          )
                         ],
-                      ),
-                      // Jalur Pendafataran
-                      Column(
-                        children: [
-                          Image.asset('assets/image/jalur_daftar.png'),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 7,
-                                  width: 7,
-                                  child: TextButton(
-                                    style: TextButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromRGBO(112, 205, 148, 100),
-                                      shape: const CircleBorder(),
-                                    ),
-                                    child: const Text(''),
-                                    onPressed: () {},
-                                  ),
-                                ),
-                                Text(
-                                  'Afirmasi',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(255, 149, 0, 100),
-                                      fontFamily: 'Poppins'),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: widht * 0.8,
-                            padding: EdgeInsets.only(top: 10, bottom: 20),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'KETM : Kartu penanggulangan kemiskinan/surat terdaftar pada DTKS/Surat keterangan tidak mampu dari kelurahan',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'Disabilitas : Hasil asesmen/diagnosa kekhususan oleh para ahli',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'Kondisi tertentu : Surat tugas atau surat keterangan korban bencana',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'Perpindahan tugas: Surat tugas',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'SLB : Hasil assessmen/diagnosa kekhususan oleh para ahli',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, bottom: 20),
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Detail'),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromRGBO(22, 167, 92, 100),
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(15),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      // Jadwal Pendaftaran
-                      Column(
-                        children: [
-                          Image.asset('assets/image/jadwal_daftar.png'),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10, bottom: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 7,
-                                  width: 7,
-                                  child: TextButton(
-                                    style: TextButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromRGBO(112, 205, 148, 100),
-                                      shape: const CircleBorder(),
-                                    ),
-                                    child: const Text(''),
-                                    onPressed: () {},
-                                  ),
-                                ),
-                                Text(
-                                  'Prestasi',
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color.fromRGBO(255, 149, 0, 100),
-                                      fontFamily: 'Poppins'),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: widht * 0.8,
-                            padding: EdgeInsets.only(top: 10, bottom: 20),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Rapor : Nilai Rapor Semestaer 1 - 5',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'Kejuaraan : Sertifikat & Foto',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: 'Poppins'),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, bottom: 20),
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text('Detail'),
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromRGBO(22, 167, 92, 100),
-                                      shape: new RoundedRectangleBorder(
-                                        borderRadius:
-                                            new BorderRadius.circular(15),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                      )
                     ],
-                  )
-                ],
+                  ),
+                ),
+              ),
+              Container(
+                child: Informasi_ppdb(),
               ),
               Container(
                 padding: EdgeInsets.only(left: 20),
@@ -444,7 +166,10 @@ class Beranda extends StatelessWidget {
               ),
               Container(
                 child: Faq_Home(),
-              )
+              ),
+              Container(
+                child: Footer(),
+              ),
             ],
           ),
         ),

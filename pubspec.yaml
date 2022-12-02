@@ -65,6 +65,10 @@ flutter:
     - assets/image/alurSLB.png
     - assets/image/alurSMA.png
     - assets/image/alurSMK.png
+    - assets/image/fb.png
+    - assets/image/ig.png
+    - assets/image/twit.png
+    - assets/image/yt.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -96,10 +100,5 @@ flutter:
           weight: 200
         - asset: assets/font/Poppins-Thin.ttf
           weight: 100
-
-    - family: tes
-      fonts:
-        - asset: assets/font/TES.ttf
-          weight: 600
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
