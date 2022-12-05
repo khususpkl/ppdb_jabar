@@ -5,8 +5,31 @@ class Faq_Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      child: MyFaq(),
+    );
+  }
+}
+
+class MyFaq extends StatefulWidget {
+  const MyFaq({super.key});
+
+  @override
+  State<MyFaq> createState() => _MyFaqState();
+}
+
+class _MyFaqState extends State<MyFaq> {
+  @override
+  Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double widht = MediaQuery.of(context).size.width;
+    bool _isVisible = true;
+
+    void showToast() {
+      setState(() {
+        _isVisible = !_isVisible;
+      });
+    }
 
     return Column(
       children: [
@@ -111,10 +134,186 @@ class Faq_Home extends StatelessWidget {
             ),
           ),
         ),
+        // Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Container(
+        //     alignment: Alignment.center,
+        //     decoration: BoxDecoration(
+        //       color: Color.fromRGBO(230, 246, 236, 100),
+        //       borderRadius: BorderRadius.circular(8),
+        //     ),
+        //     child: Column(
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        //           child: Row(
+        //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //             children: [
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.start,
+        //                 children: [
+        //                   SizedBox(
+        //                     height: 10,
+        //                     width: 10,
+        //                     child: TextButton(
+        //                       style: TextButton.styleFrom(
+        //                         backgroundColor:
+        //                             Color.fromRGBO(239, 212, 89, 100),
+        //                         shape: const CircleBorder(),
+        //                       ),
+        //                       child: const Text(''),
+        //                       onPressed: () {},
+        //                     ),
+        //                   ),
+        //                   Padding(
+        //                     padding: const EdgeInsets.only(left: 3.0),
+        //                     child: Text(
+        //                       'Apa Saja Syarat Mengikuti PPDB ?',
+        //                       style: TextStyle(
+        //                           fontSize: 15,
+        //                           fontWeight: FontWeight.w600,
+        //                           color: Colors.black,
+        //                           fontFamily: 'Poppins'),
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.end,
+        //                 children: [
+        //                   Icon(
+        //                     Icons.arrow_drop_down,
+        //                   ),
+        //                 ],
+        //               )
+        //             ],
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        // Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Container(
+        //     alignment: Alignment.center,
+        //     decoration: BoxDecoration(
+        //       color: Color.fromRGBO(230, 246, 236, 100),
+        //       borderRadius: BorderRadius.circular(8),
+        //     ),
+        //     child: Column(
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        //           child: Row(
+        //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //             children: [
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.start,
+        //                 children: [
+        //                   SizedBox(
+        //                     height: 10,
+        //                     width: 10,
+        //                     child: TextButton(
+        //                       style: TextButton.styleFrom(
+        //                         backgroundColor:
+        //                             Color.fromRGBO(239, 212, 89, 100),
+        //                         shape: const CircleBorder(),
+        //                       ),
+        //                       child: const Text(''),
+        //                       onPressed: () {},
+        //                     ),
+        //                   ),
+        //                   Padding(
+        //                     padding: const EdgeInsets.only(left: 3.0),
+        //                     child: Text(
+        //                       'Apa Saja Syarat Mengikuti PPDB ?',
+        //                       style: TextStyle(
+        //                           fontSize: 15,
+        //                           fontWeight: FontWeight.w600,
+        //                           color: Colors.black,
+        //                           fontFamily: 'Poppins'),
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.end,
+        //                 children: [
+        //                   Icon(
+        //                     Icons.arrow_drop_down,
+        //                   ),
+        //                 ],
+        //               )
+        //             ],
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        // Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Container(
+        //     alignment: Alignment.center,
+        //     decoration: BoxDecoration(
+        //       color: Color.fromRGBO(230, 246, 236, 100),
+        //       borderRadius: BorderRadius.circular(8),
+        //     ),
+        //     child: Column(
+        //       children: [
+        //         Padding(
+        //           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        //           child: Row(
+        //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //             children: [
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.start,
+        //                 children: [
+        //                   SizedBox(
+        //                     height: 10,
+        //                     width: 10,
+        //                     child: TextButton(
+        //                       style: TextButton.styleFrom(
+        //                         backgroundColor:
+        //                             Color.fromRGBO(239, 212, 89, 100),
+        //                         shape: const CircleBorder(),
+        //                       ),
+        //                       child: const Text(''),
+        //                       onPressed: () {},
+        //                     ),
+        //                   ),
+        //                   Padding(
+        //                     padding: const EdgeInsets.only(left: 3.0),
+        //                     child: Text(
+        //                       'Apa Saja Syarat Mengikuti PPDB ?',
+        //                       style: TextStyle(
+        //                           fontSize: 15,
+        //                           fontWeight: FontWeight.w600,
+        //                           color: Colors.black,
+        //                           fontFamily: 'Poppins'),
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //               Row(
+        //                 mainAxisAlignment: MainAxisAlignment.end,
+        //                 children: [
+        //                   Icon(
+        //                     Icons.arrow_drop_down,
+        //                   ),
+        //                 ],
+        //               )
+        //             ],
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Color.fromRGBO(230, 246, 236, 100),
               borderRadius: BorderRadius.circular(8),
@@ -158,199 +357,26 @@ class Faq_Home extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Icon(
-                            Icons.arrow_drop_down,
-                          ),
+                          IconButton(
+                              onPressed: showToast,
+                              icon: Icon(Icons.arrow_drop_up))
                         ],
                       )
                     ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 10,
-                            width: 10,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromRGBO(239, 212, 89, 100),
-                                shape: const CircleBorder(),
-                              ),
-                              child: const Text(''),
-                              onPressed: () {},
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 3.0),
-                            child: Text(
-                              'Apa Saja Syarat Mengikuti PPDB ?',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.arrow_drop_down,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 10,
-                            width: 10,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromRGBO(239, 212, 89, 100),
-                                shape: const CircleBorder(),
-                              ),
-                              child: const Text(''),
-                              onPressed: () {},
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 3.0),
-                            child: Text(
-                              'Apa Saja Syarat Mengikuti PPDB ?',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.arrow_drop_down,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(230, 246, 236, 100),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 10,
-                            width: 10,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    Color.fromRGBO(239, 212, 89, 100),
-                                shape: const CircleBorder(),
-                              ),
-                              child: const Text(''),
-                              onPressed: () {},
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 3.0),
-                            child: Text(
-                              'Apa Saja Syarat Mengikuti PPDB ?',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.arrow_drop_up,
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  width: widht * 0.9,
-                  padding: EdgeInsets.only(top: 20.0, bottom: 5.0),
-                  child: Text(
-                    'Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi',
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400),
+                Visibility(
+                  visible: _isVisible,
+                  child: Container(
+                    width: widht * 0.9,
+                    padding: EdgeInsets.only(top: 20.0, bottom: 5.0),
+                    child: Text(
+                      'Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi  Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi Ini Untuk Deskripsi',
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400),
+                    ),
                   ),
                 )
               ],

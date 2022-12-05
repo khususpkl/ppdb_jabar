@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppdb_jabar/routes/routes.dart';
 
 class DrawerEnd extends StatelessWidget {
   const DrawerEnd({super.key});
@@ -11,13 +12,32 @@ class DrawerEnd extends StatelessWidget {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black54,
+                  blurRadius: 1,
+                  // spreadRadius: -1,
+                  offset: Offset(0, 2), // Shadow position
+                ),
+              ],
+              image: DecorationImage(
+                image: AssetImage('assets/image/disdikjabar.png'),
+                scale: 7.0,
+              ),
             ),
-            child: Text('Drawer Header'),
+            child: Text(''),
           ),
           ListTile(
             title: const Text('Beranda'),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushReplacementNamed(context, routes.home);
+            },
           ),
           ListTile(
             title: const Text('Wilayah PPDB'),
@@ -29,7 +49,9 @@ class DrawerEnd extends StatelessWidget {
           ),
           ListTile(
             title: const Text('E-Lok'),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushReplacementNamed(context, routes.elok);
+            },
           ),
         ],
       ),

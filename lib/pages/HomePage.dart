@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
 import 'package:ppdb_jabar/components/drawer_end.dart';
+// Di Atas Component Wajib
 import 'package:ppdb_jabar/components/home/faq_home.dart';
 import 'package:ppdb_jabar/components/home/informasi_ppdb.dart';
 import 'package:ppdb_jabar/components/home/intregrafis.dart';
@@ -9,6 +10,7 @@ import 'package:ppdb_jabar/components/home/kabar_terbaru.dart';
 
 class Beranda extends StatelessWidget {
   const Beranda({super.key});
+  static const String routeName = '/home';
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class Beranda extends StatelessWidget {
               Scaffold.of(context).openDrawer();
             },
             icon: Icon(Icons.menu),
-            color: Colors.black,
+            color: Color.fromRGBO(22, 167, 92, 100),
           ),
         ),
       ),
