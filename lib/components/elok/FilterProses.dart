@@ -1,33 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
-class Content extends StatelessWidget {
-  const Content({super.key});
+class FilterProses extends StatelessWidget {
+  const FilterProses({super.key});
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double widht = MediaQuery.of(context).size.width;
-    return Container(alignment: Alignment.center, child: MenuDropdown());
+    return Container(
+        width: widht * 0.9,
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(22, 167, 92, 1),
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ],
+        ),
+        alignment: Alignment.center,
+        child: Filter());
   }
 }
 
-class MenuDropdown extends StatefulWidget {
-  const MenuDropdown({super.key});
+class Filter extends StatefulWidget {
+  const Filter({super.key});
 
   @override
-  State<MenuDropdown> createState() => _MenuDropdownState();
+  State<Filter> createState() => _FilterState();
 }
 
-class _MenuDropdownState extends State<MenuDropdown> {
+class _FilterState extends State<Filter> {
   List<String> jenjangSekolah = <String>['SMA', 'SMK', 'SLB'];
-
   List<String> jenisSeskolah = <String>['Negeri', 'Swasta'];
-
   List<String> radius = <String>['5 Km', '10 Km'];
-
   List<String> daerah = <String>['Bogor', 'Kota Bogor'];
-
   List<String> namaSekolah = <String>['SMKN 1 Bogor', 'SMKN 2 Bogor'];
 
   String jenjangValue = 'SMA';
@@ -40,17 +51,35 @@ class _MenuDropdownState extends State<MenuDropdown> {
     double height = MediaQuery.of(context).size.height;
     double widht = MediaQuery.of(context).size.width;
     return Container(
+      padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Tentukan Titik Sekolah Anda',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Poppins',
-                fontSize: 20,
-                fontWeight: FontWeight.w600),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 7,
+                width: 7,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(239, 212, 89, 1),
+                    shape: const CircleBorder(),
+                  ),
+                  child: const Text(''),
+                  onPressed: () {},
+                ),
+              ),
+              Text(
+                ' Filter Lebih Lanjut',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
           ),
           Container(
             margin: EdgeInsets.only(top: 30.0),
@@ -182,93 +211,7 @@ class _MenuDropdownState extends State<MenuDropdown> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 30.0),
-            child: Column(
-              children: [
-                Text(
-                  'Kabupaten/Kota',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Poppins',
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(9)),
-                  width: widht * 0.8,
-                  child: DropdownButton<String>(
-                    underline: Container(
-                      height: 0,
-                    ),
-                    onChanged: (String? newDaerahValue) {
-                      setState(() {
-                        daerahValue = newDaerahValue!;
-                        print(newDaerahValue);
-                      });
-                    },
-                    value: daerahValue,
-                    items: daerah.map<DropdownMenuItem<String>>(
-                      (String newDaerahValue) {
-                        return DropdownMenuItem<String>(
-                          value: newDaerahValue,
-                          child: Text(newDaerahValue),
-                        );
-                      },
-                    ).toList(),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 30.0),
-            child: Column(
-              children: [
-                Text(
-                  'Kabupaten/Kota',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Poppins',
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(9)),
-                  width: widht * 0.8,
-                  child: DropdownButton<String>(
-                    underline: Container(
-                      height: 0,
-                    ),
-                    onChanged: (String? newSekolahValue) {
-                      setState(() {
-                        namaSekolahValue = newSekolahValue!;
-                        print(newSekolahValue);
-                      });
-                    },
-                    value: namaSekolahValue,
-                    items: namaSekolah.map<DropdownMenuItem<String>>(
-                      (String newSekolahValue) {
-                        return DropdownMenuItem<String>(
-                          value: newSekolahValue,
-                          child: Text(newSekolahValue),
-                        );
-                      },
-                    ).toList(),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20.0),
+            margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
             width: widht * 0.4,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(100)),

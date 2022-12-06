@@ -71,6 +71,7 @@ flutter:
     - assets/image/twit.png
     - assets/image/yt.png
     - assets/image/bgElok.png
+    - assets/image/bgProses.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
