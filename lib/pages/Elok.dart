@@ -17,17 +17,19 @@ class Elok extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: App_Bar(),
-        leading: Builder(
-          builder: (context) => IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: Icon(Icons.menu),
-            color: Color.fromRGBO(22, 167, 92, 100),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              icon: Icon(Icons.menu),
+              color: Color.fromRGBO(22, 167, 92, 100),
+            ),
           ),
-        ),
+        ],
       ),
-      drawer: DrawerEnd(),
+      endDrawer: DrawerEnd(),
       body: SingleChildScrollView(
         child: Column(
           children: [

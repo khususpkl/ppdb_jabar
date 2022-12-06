@@ -53,7 +53,6 @@ class _ElokProsesState extends State<ElokProses> {
         child: Column(
           children: [
             Container(
-              // height: height * 1,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/image/bgProses.png'),

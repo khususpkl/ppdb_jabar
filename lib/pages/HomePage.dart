@@ -20,24 +20,25 @@ class Beranda extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: App_Bar(),
-        leading: Builder(
-          builder: (context) => IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: Icon(Icons.menu),
-            color: Color.fromRGBO(22, 167, 92, 100),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              icon: Icon(Icons.menu),
+              color: Color.fromRGBO(22, 167, 92, 100),
+            ),
           ),
-        ),
+        ],
       ),
-      drawer: DrawerEnd(),
+      endDrawer: DrawerEnd(),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
               Padding(padding: EdgeInsets.only(top: 10)),
               Container(
-                // padding: EdgeInsets.only(top: 10),
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(left: 20),
                 width: widht * 0.9,

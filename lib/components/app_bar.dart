@@ -7,7 +7,7 @@ class App_Bar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             // mainAxisAlignment: MainAxisAlignment.start,
@@ -26,15 +26,6 @@ class App_Bar extends StatelessWidget {
               ),
             ],
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [
-          //     Icon(
-          //       Icons.menu,
-          //       color: Colors.black,
-          //     )
-          //   ],
-          // )
         ],
       ),
     );
