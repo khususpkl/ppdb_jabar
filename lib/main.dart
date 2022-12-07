@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'PPDB Jabar 2023',
       // debugShowCheckedModeBanner: false,
       home: Beranda(),
       routes: {
