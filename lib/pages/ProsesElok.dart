@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
 import 'package:ppdb_jabar/components/drawer_end.dart';
+import 'package:ppdb_jabar/components/elok/Card.dart';
 import 'package:ppdb_jabar/components/elok/ContentProses.dart';
+import 'package:ppdb_jabar/components/elok/DaftarSekolah.dart';
 import 'package:ppdb_jabar/components/elok/FilterProses.dart';
 import 'package:ppdb_jabar/components/elok/Header.dart';
 import 'package:ppdb_jabar/components/elok/Maps.dart';
@@ -57,7 +59,7 @@ class _ElokProsesState extends State<ElokProses> {
                 image: DecorationImage(
                   image: AssetImage('assets/image/bgProses.png'),
                   fit: BoxFit.cover,
-                  alignment: Alignment.bottomLeft,
+                  alignment: Alignment.bottomCenter,
                 ),
               ),
               child: Container(
@@ -73,16 +75,24 @@ class _ElokProsesState extends State<ElokProses> {
                       child: ContentProses(),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 25.0),
-                      child: Maps(),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 25.0),
-                      child: FilterProses(),
+                      margin: EdgeInsets.only(top: 100.0),
+                      child: CardElok(),
                     ),
                   ],
                 ),
               ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 50.0),
+              child: Maps(),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 25.0),
+              child: FilterProses(),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 25.0),
+              child: DaftarSekolah(),
             ),
             Container(
               child: Footer(),

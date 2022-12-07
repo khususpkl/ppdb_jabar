@@ -9,6 +9,7 @@ class FilterProses extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double widht = MediaQuery.of(context).size.width;
     return Container(
+      margin: EdgeInsets.only(top: 50.0, bottom: 50.0),
         width: widht * 0.9,
         decoration: BoxDecoration(
           color: Color.fromRGBO(22, 167, 92, 1),
