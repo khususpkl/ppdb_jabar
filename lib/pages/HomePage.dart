@@ -19,7 +19,7 @@ class Beranda extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: App_Bar(),
+        title: BarApp(),
         actions: [
           Builder(
             builder: (context) => IconButton(

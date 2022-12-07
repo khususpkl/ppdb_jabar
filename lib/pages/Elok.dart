@@ -1,66 +1,85 @@
+// import 'package:crud_image/components/app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
-import 'package:ppdb_jabar/components/drawer_end.dart';
-import 'package:ppdb_jabar/components/elok/Content.dart';
-import 'package:ppdb_jabar/components/elok/Header.dart';
 
-class Elok extends StatelessWidget {
+class Elok extends StatefulWidget {
   const Elok({super.key});
   static const String routeName = '/elok';
 
   @override
+  State<Elok> createState() => _ElokState();
+}
+
+class _ElokState extends State<Elok> {
+  bool _isVisible = true;
+
+  void showToast() {
+    setState(() {
+      _isVisible = !_isVisible;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    double widht = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: App_Bar(),
+        title: BarApp(),
         actions: [
           Builder(
             builder: (context) => IconButton(
               onPressed: () {
-                Scaffold.of(context).openEndDrawer();
+                setState(() {
+                  showToast();
+                });
               },
               icon: Icon(Icons.menu),
-              color: Color.fromRGBO(22, 167, 92, 100),
+              color: Colors.black,
             ),
           ),
         ],
       ),
-      endDrawer: DrawerEnd(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: height * 1.25,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/image/bgElok.png'),
-                      fit: BoxFit.cover,
-                      alignment: Alignment.bottomCenter)),
-              child: Container(
-                width: widht,
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Container(
+                width: width * 0.5,
+                height: height * 0.2,
+                decoration: BoxDecoration(color: Colors.green),
+              ),
+              Container(
+                width: width * 0.5,
+                height: height * 0.2,
+                decoration: BoxDecoration(color: Colors.green),
+              ),
+              Container(
+                width: width * 0.5,
+                height: height * 0.2,
+                decoration: BoxDecoration(color: Colors.green),
+              ),
+            ],
+          ),
+          Visibility(
+            visible: _isVisible,
+            child: Container(
+                width: width,
+                decoration: BoxDecoration(color: Colors.blue),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   children: [
-                    Padding(padding: EdgeInsets.only(top: 10)),
-                    Container(
-                      child: Header(),
+                    ListTile(
+                      title: Text('Beranda'),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 25.0),
-                      child: Content(),
-                    ),
+                    ListTile(
+                      title: Text('E-Lok'),
+                    )
                   ],
-                ),
-              ),
-            ),
-            Container(
-              child: Footer(),
-            )
-          ],
-        ),
+                )),
+          ),
+        ],
       ),
     );
   }

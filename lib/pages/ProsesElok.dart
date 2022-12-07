@@ -37,7 +37,7 @@ class _ElokProsesState extends State<ElokProses> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: App_Bar(),
+        title: BarApp(),
         leading: Builder(
           builder: (context) => IconButton(
             onPressed: () {
