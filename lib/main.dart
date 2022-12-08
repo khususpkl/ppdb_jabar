@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'PPDB Jabar 2023',
       // debugShowCheckedModeBanner: false,
-      home: Beranda(),
+      home: HomePage(),
       routes: {
-        routes.home: (context) => Beranda(),
+        routes.home: (context) => HomePage(),
         routes.elok: (context) => Elok(),
         routes.proses: (context) => Proses(),
       },

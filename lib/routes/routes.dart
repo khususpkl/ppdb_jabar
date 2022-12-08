@@ -5,6 +5,6 @@ import 'package:ppdb_jabar/pages/ProsesElok.dart';
 
 class routes {
   static const String elok = Elok.routeName;
-  static const String home = Beranda.routeName;
+  static const String home = HomePage.routeName;
   static const String proses = Proses.routeName;
 }
