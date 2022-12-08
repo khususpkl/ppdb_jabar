@@ -1,24 +1,20 @@
-// import 'package:crud_image/components/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
-import 'package:ppdb_jabar/components/elok/ContentProses.dart';
-import 'package:ppdb_jabar/components/elok/DaftarSekolah.dart';
-import 'package:ppdb_jabar/components/elok/FilterProses.dart';
-import 'package:ppdb_jabar/components/elok/Header.dart';
-import 'package:ppdb_jabar/components/elok/Card.dart';
-import 'package:ppdb_jabar/components/elok/Maps.dart';
+import 'package:ppdb_jabar/components/sekolah/DataPendaftaran.dart';
+import 'package:ppdb_jabar/components/sekolah/InformasiSekolah.dart';
+import 'package:ppdb_jabar/components/sekolah/Maps.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
-class Elok extends StatefulWidget {
-  const Elok({super.key});
-  static const String routeName = '/elok';
+class DetailSekolah extends StatefulWidget {
+  const DetailSekolah({super.key});
+  static const String routeName = '/detail';
 
   @override
-  State<Elok> createState() => _ElokState();
+  State<DetailSekolah> createState() => _DetailSekolahState();
 }
 
-class _ElokState extends State<Elok> {
+class _DetailSekolahState extends State<DetailSekolah> {
   bool _isVisible = false;
   bool _navbarDropdown = false;
 
@@ -75,40 +71,70 @@ class _ElokState extends State<Elok> {
           SingleChildScrollView(
             child: Column(
               children: [
-                // Padding(padding: EdgeInsets.all(5.0)),
-                Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/image/bgProses.png'),
-                          fit: BoxFit.cover)),
-                  child: Column(
-                    children: [
-                      Container(
-                        child: Header(),
+                Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                        width: width,
+                        height: height * 0.2,
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 22, 167, 92),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Detail Sekolah',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'SMA NEGRI 1 BANDUNG',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              width: width,
+                              height: 5,
+                              decoration: BoxDecoration(color: Colors.white),
+                            )
+                          ],
+                        ),
                       ),
-                      Container(
-                        child: ContentProses(),
-                      ),
-                      Container(
-                        child: CardElok(),
-                      )
-                    ],
-                  ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 70.0),
+                      child: InformasiSekolah(),
+                    ),
+                  ],
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 50.0),
-                  child: Maps(),
+                  margin: EdgeInsets.only(top: 70.0),
+                  child: DataPendaftaran(),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 50.0),
-                  child: FilterProses(),
+                  margin: EdgeInsets.only(top: 70.0),
+                  child: MapsDetail(),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 50.0),
-                  child: DaftarSekolah(),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 50.0),
+                  margin: EdgeInsets.only(top: 70.0),
                   child: Footer(),
                 ),
               ],
@@ -197,10 +223,7 @@ class _ElokState extends State<Elok> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                Navigator.pushReplacementNamed(
-                                    context, routes.detail);
-                              },
+                              onTap: () {},
                             ),
                             ListTile(
                               title: Text(
@@ -223,7 +246,10 @@ class _ElokState extends State<Elok> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pushReplacementNamed(
+                                    context, routes.elok);
+                              },
                             ),
                           ],
                         ),

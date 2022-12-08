@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/pages/HomePage.dart';
 import 'package:ppdb_jabar/pages/Elok.dart';
 import 'package:ppdb_jabar/pages/ProsesElok.dart';
+import 'package:ppdb_jabar/pages/DetailSekolah.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         routes.home: (context) => HomePage(),
         routes.elok: (context) => Elok(),
         routes.proses: (context) => Proses(),
+        routes.detail: (context) => DetailSekolah(),
       },
     );
   }

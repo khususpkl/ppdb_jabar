@@ -254,13 +254,38 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     ListTile(
-                      title: Column(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Jalur PPDB',
+                          Text(
+                            'Jalur PPDB',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Poppins',
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          !_navbarDropdown
+                              ? Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  size: 30,
+                                )
+                              : Icon(
+                                  Icons.keyboard_arrow_up_rounded,
+                                  size: 30,
+                                )
+                        ],
+                      ),
+                      onTap: navbarDropdown,
+                    ),
+                    Stack(
+                      children: [
+                        Column(
+                          children: [
+                            ListTile(
+                              title: Text(
+                                'Profil PPDB',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
@@ -268,100 +293,145 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              !_navbarDropdown
-                                  ? Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      size: 30,
-                                    )
-                                  : Icon(
-                                      Icons.keyboard_arrow_up_rounded,
-                                      size: 30,
-                                    )
-                            ],
-                          ),
-                        ],
-                      ),
-                      subtitle: Visibility(
-                        visible: _navbarDropdown,
-                        child: Column(
-                          children: [
+                              onTap: () {
+                                Navigator.pushReplacementNamed(context, routes.detail);
+                              },
+                            ),
                             ListTile(
                               title: Text(
-                                'Jalur Pendaftaran PPDB SMA',
+                                'Pengaduan',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
-                                  fontSize: 12,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),
                             ListTile(
                               title: Text(
-                                'Jalur Pendaftaran PPDB SMK',
+                                'E-Location',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                            ListTile(
-                              title: Text(
-                                'Jalur Pendaftaran PPDB SLB',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               onTap: () {
-                                Navigator.pushReplacementNamed(
-                                    context, routes.elok);
+                                Navigator.pushReplacementNamed(context, routes.elok);
                               },
-                            )
+                            ),
                           ],
                         ),
-                      ),
-                      onTap: navbarDropdown,
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Profile',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Pengaduan',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'E-Location',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.pushReplacementNamed(context, routes.elok);
-                      },
+                        Visibility(
+                          visible: _navbarDropdown,
+                          child: Container(
+                            decoration: BoxDecoration(color: Colors.white),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 25.0,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        height: 10,
+                                        width: 10,
+                                        child: TextButton(
+                                          style: TextButton.styleFrom(
+                                            backgroundColor: Color.fromARGB(
+                                                255, 112, 205, 148),
+                                            shape: const CircleBorder(),
+                                          ),
+                                          child: const Text(''),
+                                          onPressed: () {},
+                                        ),
+                                      ),
+                                      InkWell(
+                                        child: Text(
+                                          ' Jalur Pendaftaran PPDB SMA',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 25.0, top: 10.0),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        height: 10,
+                                        width: 10,
+                                        child: TextButton(
+                                          style: TextButton.styleFrom(
+                                            backgroundColor: Color.fromARGB(
+                                                255, 112, 205, 148),
+                                            shape: const CircleBorder(),
+                                          ),
+                                          child: const Text(''),
+                                          onPressed: () {},
+                                        ),
+                                      ),
+                                      InkWell(
+                                        child: Text(
+                                          ' Jalur Pendaftaran PPDB SMK',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 25.0, top: 10.0, bottom: 5.0),
+                                  child: Row(
+                                    children: [
+                                      SizedBox(
+                                        height: 10,
+                                        width: 10,
+                                        child: TextButton(
+                                          style: TextButton.styleFrom(
+                                            backgroundColor: Color.fromARGB(
+                                                255, 112, 205, 148),
+                                            shape: const CircleBorder(),
+                                          ),
+                                          child: const Text(''),
+                                          onPressed: () {},
+                                        ),
+                                      ),
+                                      InkWell(
+                                        child: Text(
+                                          ' Jalur Pendaftaran PPDB SLB',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
                     )
                   ],
                 ),
