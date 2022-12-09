@@ -252,6 +252,11 @@ class _DetailSekolahState extends State<DetailSekolah> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
+                              onTap: () {
+                                setState(() {
+                                  Navigator.pushReplacementNamed(context, routes.pendaftar);
+                                });
+                              },
                             ),
                             ListTile(
                               title: Text(

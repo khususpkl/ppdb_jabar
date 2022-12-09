@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InformasiSekolah extends StatelessWidget {
-  const InformasiSekolah({super.key});
+class InformasiPendaftar extends StatelessWidget {
+  const InformasiPendaftar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class InformasiSekolah extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  ' Informasi Sekolah',
+                  ' Informasi Pendaftar',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 149, 0),
                       fontFamily: 'Poppins',
@@ -54,7 +54,7 @@ class InformasiSekolah extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Kode Sekolah :',
+                          'Nomor Pendaftaran :',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -81,7 +81,7 @@ class InformasiSekolah extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Status Sekolah :',
+                          'Nama :',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -91,7 +91,7 @@ class InformasiSekolah extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          'Negri',
+                          'Ahmad Rivaiy',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -108,7 +108,7 @@ class InformasiSekolah extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Nama Sekolah :',
+                          'Sekolah Pilihan :',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -165,7 +165,7 @@ class InformasiSekolah extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'No.Telepon :',
+                          'Jarak :',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -175,7 +175,7 @@ class InformasiSekolah extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          '0221243134134',
+                          '2 KM',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -193,7 +193,7 @@ class InformasiSekolah extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Koordinat :',
+                          'Skor :',
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 15,
@@ -202,12 +202,56 @@ class InformasiSekolah extends StatelessWidget {
                         SizedBox(
                           width: 10,
                         ),
-                        Text(
-                          'Longitude :\n-6.895229\nLatitude :\n107.612821',
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400),
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'SMAN 1',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  '213,02 meter',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.italic,
+                                      color:
+                                          Color.fromARGB(255, 158, 158, 158)),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'SMAN 2',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  '253,02 meter',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.italic,
+                                      color:
+                                          Color.fromARGB(255, 158, 158, 158)),
+                                ),
+                              ],
+                            ),
+                          ],
                         )
                       ],
                     ),

@@ -1,40 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
+import 'package:ppdb_jabar/components/pendaftar/InformasiPendaftar.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
-// Di Atas Component Wajib
-import 'package:ppdb_jabar/components/home/faq_home.dart';
-import 'package:ppdb_jabar/components/home/informasi_ppdb.dart';
-import 'package:ppdb_jabar/components/home/intregrafis.dart';
-import 'package:ppdb_jabar/components/home/kabar_terbaru.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-  static const String routeName = '/home';
+class DetailPendaftar extends StatefulWidget {
+  const DetailPendaftar({super.key});
+  static const String routeName = '/pendaftar';
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DetailPendaftar> createState() => _DetailPendaftarState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DetailPendaftarState extends State<DetailPendaftar> {
   late ScrollController _scrollController;
   bool _showBackToTopButton = false;
   bool _isVisible = false;
   bool _navbarDropdown = false;
 
   void initState() {
-    setState(() {
-      _scrollController = ScrollController()
-        ..addListener(() {
-          setState(() {
-            if (_scrollController.offset >= MediaQuery.of(context).size.width) {
-              _showBackToTopButton = true;
-            } else {
-              _showBackToTopButton = false;
-            }
-          });
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= MediaQuery.of(context).size.height) {
+            _showBackToTopButton = true;
+          } else {
+            _showBackToTopButton = false;
+          }
         });
-    });
+      });
     super.initState();
   }
 
@@ -92,140 +86,62 @@ class _HomePageState extends State<HomePage> {
             controller: _scrollController,
             child: Column(
               children: [
-                Padding(padding: EdgeInsets.only(top: 10)),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(left: 20),
-                  width: width * 0.9,
-                  height: height * 0.2,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(
-                      image: AssetImage('assets/image/bg_hero.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(top: 40),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'PPDB',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          'SLB - SMA - SMK',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 11,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          'Sekolah Merdeka Jabar Juara',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 11,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Row(
+                Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                        width: width,
+                        height: height * 0.2,
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 22, 167, 92),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
                           children: [
-                            Container(
-                              padding: EdgeInsets.only(left: 3.0),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              height: 30,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Ayo Daftar PPDB 2023',
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Detail Pendaftar',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.green),
-                                      foregroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                              Colors.white),
-                                    ),
-                                    child: Text(
-                                      'Daftar',
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 8,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  'Ahmad Rivaiy',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              width: width,
+                              height: 5,
+                              decoration: BoxDecoration(color: Colors.white),
                             )
                           ],
-                        )
-                      ],
+                        ),
+                      ),
                     ),
-                  ),
+                    Container(
+                      margin: EdgeInsets.only(top: 70.0),
+                      child: InformasiPendaftar(),
+                    ),
+                  ],
                 ),
                 Container(
-                  child: Informasi_ppdb(),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Padding(padding: EdgeInsets.only(bottom: 20)),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Intrografis',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: Color.fromRGBO(144, 202, 249, 100)),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Video',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  color: Color.fromRGBO(22, 167, 92, 1)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[Intregrafis()],
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 20.0),
-                        child: KabarTerbaru(),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  child: Faq_home(),
-                ),
-                Container(
+                  margin: EdgeInsets.only(top: 70.0),
                   child: Footer(),
                 ),
               ],
@@ -259,7 +175,9 @@ class _HomePageState extends State<HomePage> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, routes.home);
+                      },
                     ),
                     ListTile(
                       title: Text(
@@ -312,10 +230,7 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                Navigator.pushReplacementNamed(
-                                    context, routes.detail);
-                              },
+                              onTap: () {},
                             ),
                             ListTile(
                               title: Text(
@@ -327,11 +242,6 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                setState(() {
-                                  Navigator.pushReplacementNamed(context, routes.pendaftar);
-                                });
-                              },
                             ),
                             ListTile(
                               title: Text(
