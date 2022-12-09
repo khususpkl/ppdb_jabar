@@ -30,6 +30,23 @@ class ElokProses extends StatefulWidget {
 }
 
 class _ElokProsesState extends State<ElokProses> {
+  late ScrollController _scrollController;
+  bool _showBackToTopButton = false;
+
+  void initState() {
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= MediaQuery.of(context).size.height) {
+            _showBackToTopButton = true;
+          } else {
+            _showBackToTopButton = false;
+          }
+        });
+      });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -52,6 +69,7 @@ class _ElokProsesState extends State<ElokProses> {
       ),
       drawer: DrawerEnd(),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             Container(
@@ -100,6 +118,17 @@ class _ElokProsesState extends State<ElokProses> {
           ],
         ),
       ),
+      floatingActionButton: _showBackToTopButton == false
+          ? null
+          : FloatingActionButton(
+              child: Icon(Icons.arrow_upward_rounded),
+              backgroundColor: Color.fromRGBO(22, 167, 92, 1),
+              onPressed: () {
+                _scrollController.animateTo(0,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.fastOutSlowIn);
+              },
+            ),
     );
   }
 }

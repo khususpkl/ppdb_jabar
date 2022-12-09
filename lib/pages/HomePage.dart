@@ -17,8 +17,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late ScrollController _scrollController;
+  bool _showBackToTopButton = false;
   bool _isVisible = false;
   bool _navbarDropdown = false;
+
+  void initState() {
+    setState(() {
+      _scrollController = ScrollController()
+        ..addListener(() {
+          setState(() {
+            if (_scrollController.offset >= MediaQuery.of(context).size.width) {
+              _showBackToTopButton = true;
+            } else {
+              _showBackToTopButton = false;
+            }
+          });
+        });
+    });
+    super.initState();
+  }
 
   void showToast() {
     setState(() {
@@ -71,6 +89,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           SingleChildScrollView(
+            controller: _scrollController,
             child: Column(
               children: [
                 Padding(padding: EdgeInsets.only(top: 10)),
@@ -188,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                               'Video',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  color: Color.fromRGBO(22, 167, 92, 100)),
+                                  color: Color.fromRGBO(22, 167, 92, 1)),
                             ),
                           ),
                         ],
@@ -294,7 +313,8 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               onTap: () {
-                                Navigator.pushReplacementNamed(context, routes.detail);
+                                Navigator.pushReplacementNamed(
+                                    context, routes.detail);
                               },
                             ),
                             ListTile(
@@ -319,7 +339,8 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               onTap: () {
-                                Navigator.pushReplacementNamed(context, routes.elok);
+                                Navigator.pushReplacementNamed(
+                                    context, routes.elok);
                               },
                             ),
                           ],
@@ -440,6 +461,17 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      floatingActionButton: _showBackToTopButton == false
+          ? null
+          : FloatingActionButton(
+              child: Icon(Icons.arrow_upward_rounded),
+              backgroundColor: Color.fromRGBO(22, 167, 92, 1),
+              onPressed: () {
+                _scrollController.animateTo(0,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.fastOutSlowIn);
+              },
+            ),
     );
   }
 }

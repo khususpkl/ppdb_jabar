@@ -15,8 +15,24 @@ class DetailSekolah extends StatefulWidget {
 }
 
 class _DetailSekolahState extends State<DetailSekolah> {
+  late ScrollController _scrollController;
+  bool _showBackToTopButton = false;
   bool _isVisible = false;
   bool _navbarDropdown = false;
+
+  void initState() {
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= MediaQuery.of(context).size.height) {
+            _showBackToTopButton = true;
+          } else {
+            _showBackToTopButton = false;
+          }
+        });
+      });
+    super.initState();
+  }
 
   void showToast() {
     setState(() {
@@ -69,6 +85,7 @@ class _DetailSekolahState extends State<DetailSekolah> {
       body: Stack(
         children: [
           SingleChildScrollView(
+            controller: _scrollController,
             child: Column(
               children: [
                 Stack(
@@ -369,6 +386,17 @@ class _DetailSekolahState extends State<DetailSekolah> {
           ),
         ],
       ),
+      floatingActionButton: _showBackToTopButton == false
+          ? null
+          : FloatingActionButton(
+              child: Icon(Icons.arrow_upward_rounded),
+              backgroundColor: Color.fromRGBO(22, 167, 92, 1),
+              onPressed: () {
+                _scrollController.animateTo(0,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.fastOutSlowIn);
+              },
+            ),
     );
   }
 }

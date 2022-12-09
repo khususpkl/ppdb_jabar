@@ -10,21 +10,21 @@ class DataPendaftaran extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     Map<String, double> dataMap = {
-      "2019": 5,
-      "2020": 3,
-      "2021": 5,
+      "2019": 3,
+      "2020": 2,
+      "2021": 3,
       "2022": 3,
-      "2023": 1
+      "2023": 3
     };
-    return Container(
-      padding: EdgeInsets.only(left: width * 0.15, right: width * 0.15),
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: width * 0.08, bottom: height * 0.03),
+          child: Row(
             children: [
               SizedBox(
-                height: 10,
-                width: 10,
+                height: 15,
+                width: 15,
                 child: TextButton(
                   style: TextButton.styleFrom(
                     backgroundColor: Color.fromARGB(255, 112, 205, 148),
@@ -44,16 +44,31 @@ class DataPendaftaran extends StatelessWidget {
               )
             ],
           ),
-          PieChart(
-            dataMap: dataMap,
-            chartRadius: width / 1.7,
-            legendOptions: LegendOptions(
-                legendPosition: LegendPosition.top, showLegendsInRow: true),
-            chartValuesOptions: ChartValuesOptions(showChartValues: false),
-            chartType: ChartType.ring,
+        ),
+        PieChart(
+          dataMap: dataMap,
+          colorList: [
+            Color.fromARGB(255, 22, 167, 92),
+            Color.fromARGB(255, 31, 183, 103),
+            Color.fromARGB(255, 77, 194, 126),
+            Color.fromARGB(255, 112, 205, 148),
+            Color.fromARGB(255, 155, 219, 179)
+          ],
+          chartRadius: width / 1.7,
+          ringStrokeWidth: 60,
+          legendOptions: LegendOptions(
+            legendPosition: LegendPosition.top,
+            showLegendsInRow: true,
+            legendShape: BoxShape.rectangle
           ),
-        ],
-      ),
+          chartValuesOptions: ChartValuesOptions(
+              showChartValues: false,
+              showChartValuesInPercentage: true,
+              showChartValuesOutside: true,
+              showChartValueBackground: false),
+          chartType: ChartType.ring,
+        ),
+      ],
     );
   }
 }

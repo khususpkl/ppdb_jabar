@@ -11,7 +11,7 @@ class Footer extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 5.0, left: 20.0, right: 20.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Image(
                 image: AssetImage('assets/image/ppdb.png'),
@@ -27,16 +27,16 @@ class Footer extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(100)),
-                child: Icon(
-                  Icons.arrow_upward,
-                  color: Colors.white,
-                ),
-              )
+              // Container(
+              //   padding: EdgeInsets.all(10.0),
+              //   decoration: BoxDecoration(
+              //       color: Colors.green,
+              //       borderRadius: BorderRadius.circular(100)),
+              //   child: Icon(
+              //     Icons.arrow_upward,
+              //     color: Colors.white,
+              //   ),
+              // )
             ],
           ),
         ),
