@@ -4,6 +4,7 @@ import 'package:ppdb_jabar/pages/Elok.dart';
 import 'package:ppdb_jabar/pages/ProsesElok.dart';
 import 'package:ppdb_jabar/pages/DetailSekolah.dart';
 import 'package:ppdb_jabar/pages/DetailPendaftar.dart';
+import 'package:ppdb_jabar/pages/informasi_sekolah.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
 void main() {
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         routes.proses: (context) => Proses(),
         routes.detail: (context) => DetailSekolah(),
         routes.pendaftar: (context) => DetailPendaftar(),
+        routes.informasiSekolah: (context) => InformasiSekolah(),
       },
     );
   }

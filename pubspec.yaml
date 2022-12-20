@@ -31,6 +31,7 @@ environment:
 dependencies:
   carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.2
+  dio: ^4.0.6
   dropdown_button2: ^1.9.2
   flutter:
     sdk: flutter
@@ -69,6 +70,7 @@ flutter:
     - assets/image/bgElok.png
     - assets/image/bgProses.png
     - assets/image/maps.png
+    - assets/image/gedungSate.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

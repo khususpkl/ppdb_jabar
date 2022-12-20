@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
+import 'package:ppdb_jabar/components/sekolah/InformasiSekolah.dart';
+import 'package:ppdb_jabar/pages/informasi_sekolah.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 // Di Atas Component Wajib
 import 'package:ppdb_jabar/components/home/faq_home.dart';
@@ -251,18 +253,6 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ListTile(
                       title: Text(
-                        'Beranda',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Poppins',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      onTap: () {},
-                    ),
-                    ListTile(
-                      title: Text(
                         'Wilayah PPDB',
                         style: TextStyle(
                           color: Colors.black,
@@ -312,10 +302,7 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                Navigator.pushReplacementNamed(
-                                    context, routes.detail);
-                              },
+                              onTap: () {},
                             ),
                             ListTile(
                               title: Text(
@@ -327,11 +314,7 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                setState(() {
-                                  Navigator.pushReplacementNamed(context, routes.pendaftar);
-                                });
-                              },
+                              onTap: () {},
                             ),
                             ListTile(
                               title: Text(
@@ -346,6 +329,21 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {
                                 Navigator.pushReplacementNamed(
                                     context, routes.elok);
+                              },
+                            ),
+                            ListTile(
+                              title: Text(
+                                'Informasi Sekolah',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.pushReplacementNamed(
+                                    context, routes.informasiSekolah);
                               },
                             ),
                           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppdb_jabar/components/Footer.dart';
 import 'package:ppdb_jabar/components/app_bar.dart';
 import 'package:ppdb_jabar/components/pendaftar/InformasiPendaftar.dart';
+import 'package:ppdb_jabar/pages/informasi_sekolah.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
 class DetailPendaftar extends StatefulWidget {
@@ -256,6 +257,25 @@ class _DetailPendaftarState extends State<DetailPendaftar> {
                               onTap: () {
                                 Navigator.pushReplacementNamed(
                                     context, routes.elok);
+                              },
+                            ),
+                            ListTile(
+                              title: Text(
+                                'Informasi Sekolah',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => InformasiSekolah(),
+                                  ),
+                                );
                               },
                             ),
                           ],

@@ -4,6 +4,7 @@ import 'package:ppdb_jabar/components/app_bar.dart';
 import 'package:ppdb_jabar/components/sekolah/DataPendaftaran.dart';
 import 'package:ppdb_jabar/components/sekolah/InformasiSekolah.dart';
 import 'package:ppdb_jabar/components/sekolah/Maps.dart';
+import 'package:ppdb_jabar/pages/informasi_sekolah.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
 class DetailSekolah extends StatefulWidget {
@@ -54,33 +55,16 @@ class _DetailSekolahState extends State<DetailSekolah> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: BarApp(),
-        actions: [
-          !_isVisible
-              ? Builder(
-                  builder: (context) => IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showToast();
-                      });
-                    },
-                    icon: Icon(Icons.menu),
-                    color: Colors.black,
-                    iconSize: 30,
-                  ),
-                )
-              : Builder(
-                  builder: (context) => IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showToast();
-                      });
-                    },
-                    icon: Icon(Icons.close_rounded),
-                    color: Colors.black,
-                    iconSize: 30,
-                  ),
-                ),
-        ],
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.black,
+            size: 30,
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -138,7 +122,7 @@ class _DetailSekolahState extends State<DetailSekolah> {
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 70.0),
-                      child: InformasiSekolah(),
+                      child: InfoSekolah(),
                     ),
                   ],
                 ),
@@ -252,11 +236,7 @@ class _DetailSekolahState extends State<DetailSekolah> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                setState(() {
-                                  Navigator.pushReplacementNamed(context, routes.pendaftar);
-                                });
-                              },
+                              onTap: () {},
                             ),
                             ListTile(
                               title: Text(
@@ -271,6 +251,25 @@ class _DetailSekolahState extends State<DetailSekolah> {
                               onTap: () {
                                 Navigator.pushReplacementNamed(
                                     context, routes.elok);
+                              },
+                            ),
+                            ListTile(
+                              title: Text(
+                                'Informasi Sekolah',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => InformasiSekolah(),
+                                  ),
+                                );
                               },
                             ),
                           ],

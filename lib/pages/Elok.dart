@@ -8,6 +8,7 @@ import 'package:ppdb_jabar/components/elok/FilterProses.dart';
 import 'package:ppdb_jabar/components/elok/Header.dart';
 import 'package:ppdb_jabar/components/elok/Card.dart';
 import 'package:ppdb_jabar/components/elok/Maps.dart';
+import 'package:ppdb_jabar/pages/informasi_sekolah.dart';
 import 'package:ppdb_jabar/routes/routes.dart';
 
 class Elok extends StatefulWidget {
@@ -214,10 +215,7 @@ class _ElokState extends State<Elok> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                Navigator.pushReplacementNamed(
-                                    context, routes.detail);
-                              },
+                              onTap: () {},
                             ),
                             ListTile(
                               title: Text(
@@ -232,7 +230,7 @@ class _ElokState extends State<Elok> {
                             ),
                             ListTile(
                               title: Text(
-                                'E-Location',
+                                'Informasi Sekolah',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontFamily: 'Poppins',
@@ -240,7 +238,14 @@ class _ElokState extends State<Elok> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => InformasiSekolah(),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
